@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Question Details</title>
+  <link rel="stylesheet" href="./Utiles/Screen3.css">
+  <!-- Add Remixicon CSS link if you haven't already -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Question Details</h1>
+      <div id="userInfo">
+        <!-- User info will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="question-header">
+        <h2 id="questionTitle"></h2>
+        <div class="meta-info" id="questionMeta"></div>
+      </div>
+
+      <div class="question-body">
+        <!-- Question Vote Section -->
+        <div class="vote-section">
+          <button class="vote-btn upvote">▲</button>
+          <div class="vote-count">0</div>
+          <button class="vote-btn downvote">▼</button>
+        </div>
+
+        <div class="question-details" id="questionDescription">
+          <!-- Question description will be loaded here -->
+        </div>
+      </div>
+      <div class="image-row" id="questionImages">
+        <!-- Images will be loaded here if any -->
+      </div>
+    </div>
+
+    <h2>Answers</h2>
+    <div id="answersList">
+      <!-- Answers will be loaded here -->
+    </div>
+
+    <div class="answer-box">
+      <h3>Your Answer</h3>
+      <textarea id="answerInput" placeholder="Type your answer here..." rows="5"></textarea>
+      <button onclick="submitAnswer()">Post Your Answer</button>
+    </div>
+  </div>
+
+  <script src="./Utiles/Screen3.js"></script>
+</body>
+</html>

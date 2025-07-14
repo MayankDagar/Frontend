@@ -1,0 +1,611 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-size: 1.05rem; /* Slightly increase base font size */
+}
+
+.container {
+  padding: 25px; /* Increase padding */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Adjust padding for smaller screens to prevent excessive whitespace */
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 25px; /* Increase padding */
+    padding-right: 25px; /* Increase padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px; /* Increase padding */
+    padding-right: 20px; /* Increase padding */
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff88;
+  backdrop-filter: blur(10px);
+  border-radius: 25px; /* Slightly larger border-radius */
+  padding: 18px 30px; /* Increase padding */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12); /* Slightly larger shadow */
+  margin-bottom: 35px; /* Increase margin */
+  position: relative;
+}
+
+.logo {
+  font-size: 2.2rem; /* Increase logo font size */
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+/* Auth Section - New styles for login button / user avatar */
+.auth-section {
+  display: flex;
+  gap: 1.2rem; /* Increase gap */
+  align-items: center;
+}
+
+.login-btn {
+  text-decoration: none;
+  background: white;
+  border: 2px solid #3f51b5;
+  color: #3f51b5;
+  padding: 12px 22px; /* Increase padding */
+  border-radius: 14px; /* Slightly larger border-radius */
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.05rem; /* Slightly larger font */
+}
+
+.login-btn:hover {
+  background: #3f51b5;
+  color: white;
+  box-shadow: 0 0 12px rgba(63, 81, 181, 0.4); /* Slightly larger shadow */
+}
+
+/* User Avatar styles (from Logged.css, adapted) */
+.user-avatar {
+  width: 45px; /* Increase size */
+  height: 45px; /* Increase size */
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid #3f51b5;
+}
+
+.user-avatar:hover {
+  transform: scale(1.1);
+}
+
+/* Dropdown Menu styles (from Logged.css, adapted) */
+.dropdown-menu {
+  position: absolute;
+  top: 75px; /* Adjust position */
+  right: 30px; /* Adjust position */
+  background: white;
+  border-radius: 12px; /* Slightly larger border-radius */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Slightly larger shadow */
+  width: 220px; /* Increase width */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-header {
+  padding: 0.85rem 1.1rem; /* Increase padding */
+  color: #333;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem; /* Slightly larger font */
+}
+
+.dropdown-item {
+  padding: 0.85rem 1.1rem; /* Increase padding */
+  color: #333;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+  font-size: 1rem; /* Slightly larger font */
+}
+
+.dropdown-item:hover {
+  background: #f5f7fa;
+  color: #3f51b5;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #eee;
+  margin: 0.3rem 0; /* Slightly larger margin */
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  margin-bottom: 25px; /* Increase margin */
+  background: #ffffffcc;
+  padding: 12px 22px; /* Increase padding */
+  border-radius: 12px; /* Slightly larger border-radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Slightly larger shadow */
+}
+
+.breadcrumb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  font-size: 1rem; /* Increase font size */
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: #2c3e91;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  padding: 0 10px; /* Increase space around separator */
+  color: #aaa;
+}
+
+.breadcrumb-item.active {
+  color: #333;
+  font-weight: 600;
+}
+
+
+/* Top bar with filters and search */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px; /* Increase gap */
+  margin-bottom: 30px; /* Increase margin */
+}
+
+.filters {
+  display: flex;
+  gap: 12px; /* Increase gap */
+}
+
+.ask-btn,
+.filter-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px 18px; /* Increase padding */
+  border-radius: 12px; /* Slightly larger border-radius */
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Slightly larger shadow */
+  font-size: 1rem; /* Increase font size */
+}
+
+.ask-btn {
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.ask-btn:hover {
+  transform: translateY(-3px) scale(1.03); /* Slightly more pronounced effect */
+  box-shadow: 0 10px 22px rgba(0, 201, 255, 0.6); /* Slightly larger shadow */
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.04); /* Slightly more pronounced effect */
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12); /* Slightly larger shadow */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 12px; /* Increase padding */
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 12px 0 0 12px; /* Slightly larger border-radius */
+  color: #333;
+  outline: none;
+  font-size: 1rem; /* Increase font size */
+}
+
+.search-icon {
+  background: #3f51b5;
+  border: none;
+  padding: 12px; /* Increase padding */
+  border-radius: 0 12px 12px 0; /* Slightly larger border-radius */
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem; /* Increase font size */
+}
+.search-icon:hover {
+  background: #303f9f;
+}
+
+/* Questions list */
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Increase gap */
+}
+
+.question-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #ffffffcc;
+  border: 1px solid #eee;
+  border-radius: 22px; /* Slightly larger border-radius */
+  padding: 25px; /* Increase padding */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.09); /* Slightly larger shadow */
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.question-card:hover {
+  transform: translateY(-5px); /* Slightly more pronounced effect */
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12); /* Slightly larger shadow */
+}
+
+.question-content h2 {
+  font-size: 1.35rem; /* Increase heading font size */
+  margin: 0;
+  color: #3f51b5;
+}
+
+.question-content p {
+  color: #444;
+  font-size: 1rem; /* Increase paragraph font size */
+  margin-top: 8px; /* Adjust margin */
+}
+
+.tags {
+  margin: 12px 0; /* Increase margin */
+}
+
+.tag {
+  background: #e3f2fd;
+  padding: 6px 12px; /* Increase padding */
+  border-radius: 12px; /* Slightly larger border-radius */
+  font-size: 0.85rem; /* Slightly larger font size */
+  color: #0d47a1;
+  margin-right: 6px; /* Increase margin */
+}
+
+.user-name {
+  font-size: 0.8rem; /* Slightly larger font size */
+  color: #555;
+  margin-top: 5px; /* Adjust margin */
+}
+
+.answers {
+  background: #3f51b5;
+  color: white;
+  padding: 12px; /* Increase padding */
+  border-radius: 12px; /* Slightly larger border-radius */
+  min-width: 65px; /* Increase min-width */
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 10px #3f51b5aa; /* Slightly larger shadow */
+  font-size: 1.1rem; /* Increase font size */
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px; /* Increase margin */
+  gap: 12px; /* Increase gap */
+}
+
+.pagination button {
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px 16px; /* Increase padding */
+  border-radius: 10px; /* Slightly larger border-radius */
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1rem; /* Increase font size */
+}
+
+.pagination .active {
+  background: #3f51b5;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination button:hover {
+  background: #e0e0e0;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.7); /* Slightly darker overlay */
+  backdrop-filter: blur(6px); /* Slightly more blur */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 35px; /* Increase padding */
+  border-radius: 22px; /* Slightly larger border-radius */
+  width: 650px; /* Increase width */
+  max-width: 92%; /* Slightly larger max-width */
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18); /* Slightly larger shadow */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  margin-bottom: 25px; /* Increase margin */
+}
+
+.modal-header h2 {
+  font-size: 1.6rem; /* Increase heading font size */
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1.4rem; /* Increase font size */
+  color: #555;
+  cursor: pointer;
+}
+
+.form label {
+  display: block;
+  margin: 12px 0 6px; /* Increase margin */
+  font-weight: 500;
+  color: #333;
+  font-size: 1.05rem; /* Increase font size */
+}
+
+.form input {
+  width: 100%;
+  padding: 12px; /* Increase padding */
+  background: #f5f5f5;
+  border: none;
+  border-radius: 12px; /* Slightly larger border-radius */
+  color: #333;
+  margin-bottom: 18px; /* Increase margin */
+  font-size: 1rem; /* Increase font size */
+}
+
+#editor {
+  height: 180px; /* Increase height */
+  background: white;
+  color: black;
+  border-radius: 12px; /* Slightly larger border-radius */
+  margin-bottom: 18px; /* Increase margin */
+  font-size: 1rem; /* Ensure Quill content is also larger */
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px; /* Increase padding */
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  border: none;
+  border-radius: 14px; /* Slightly larger border-radius */
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem; /* Increase font size */
+  cursor: pointer;
+  box-shadow: 0 0 12px #00f2fe99; /* Slightly larger shadow */
+  transition: 0.3s ease-in-out;
+}
+.submit-btn:hover {
+  transform: scale(1.03); /* Slightly more pronounced effect */
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9); /* Slightly smaller starting scale */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-modal-content {
+  background: #fff;
+  color: #333;
+  padding: 35px; /* Increase padding */
+  border-radius: 18px; /* Slightly larger border-radius */
+  text-align: center;
+  width: 90%;
+  max-width: 450px; /* Increase max-width */
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.25); /* Slightly larger shadow */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.login-modal-content h2 {
+  margin-bottom: 25px; /* Increase margin */
+  font-size: 1.5rem; /* Increase font size */
+}
+
+.login-modal-content button {
+  padding: 12px 22px; /* Increase padding */
+  margin: 12px; /* Increase margin */
+  border: none;
+  border-radius: 10px; /* Slightly larger border-radius */
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1rem; /* Increase font size */
+}
+
+#goToLoginBtn {
+  text-decoration: none;
+  background: white;
+  border: 2px solid #3f51b5;
+  color: #3f51b5;
+  padding: 12px 22px; /* Increase padding */
+  border-radius: 14px; /* Slightly larger border-radius */
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem; /* Increase font size */
+}
+
+#goToLoginBtn:hover {
+  background: #3f51b5;
+  color: white;
+  box-shadow: 0 0 12px rgba(63, 81, 181, 0.4); /* Slightly larger shadow */
+}
+
+.close-login-modal {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.close-login-modal:hover {
+  background: #ddd;
+}
+
+/* Delete button styling (already added, just ensuring it's here) */
+.delete-btn {
+  background: #f44336; /* Red background */
+  color: white;
+  border: none;
+  padding: 7px 14px; /* Slightly larger padding */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem; /* Slightly larger font size */
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-left: 12px; /* Increase margin */
+  align-self: flex-end;
+  white-space: nowrap;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+}
+
+.question-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Adjust user-name to accommodate the button better */
+.user-name {
+  display: flex; /* Make it a flex container */
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Space between user name and button */
+}
+
+/* Add this to your Home.css file */
+
+.question-card {
+  /* ... existing styles ... */
+  cursor: pointer; /* Indicate clickability */
+  display: flex; /* Ensure flex for proper layout with button */
+  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between; /* Space out content and potential button */
+  padding: 25px; /* Ensure consistent padding */
+}
+
+.question-card a {
+  /* Styles for the anchor tag wrapping content */
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color */
+  display: flex; /* Make the link a flex container */
+  flex-grow: 1; /* Allow it to take available space */
+  justify-content: space-between; /* Maintain internal layout */
+  align-items: flex-start; /* Align content within the link */
+  gap: 20px; /* Space between question content and answers count */
+}
+
+/* Adjust question-content to ensure it takes space within the link */
+.question-card .question-content {
+  flex-grow: 1; /* Allow question content to grow */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Adjust answers to ensure it's part of the link's flex layout */
+.question-card .answers {
+  flex-shrink: 0; /* Prevent answers from shrinking */
+}
+
+/* Position the delete button outside the main link area */
+.question-card .delete-btn {
+  margin-left: 15px; /* Space from the clickable area */
+  flex-shrink: 0; /* Prevent button from shrinking */
+  align-self: center; /* Center vertically within the card */
+}
+
